@@ -1,0 +1,17 @@
+package spring.tx;
+
+import java.util.List;
+
+public interface EmployeeService {
+
+	void save(EmployeeInfo e);
+
+	void update(EmployeeInfo e);
+
+	void delete(int id);
+
+	EmployeeInfo get(int id);
+
+	List<EmployeeInfo> getAll();
+
+}
