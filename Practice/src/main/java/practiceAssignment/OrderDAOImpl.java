@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class OrderDAOImpl implements OrderDAO {
 
 	private SessionFactory sessionFactory;
@@ -13,7 +14,7 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 	@Override
 	public void save(Orders o) {
-		new HibernateTemplate(sessionFactory).save(o);
+		new HibernateTemplate(sessionFactory).merge(o);
 	}
 
 	@Override

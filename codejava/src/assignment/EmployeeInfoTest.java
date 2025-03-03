@@ -43,26 +43,32 @@ class EmployeeInfoTest {
 	@Test
 	void testGetEmployee() {
 		System.out.println("..........................................................");
-		double sumEmployeeByLevel = EmployeeInfo.getEmployeeByLevel(0, EmployeeInfo.emp);
-		System.out.println("sumEmployeeByLevel :: "+sumEmployeeByLevel);
+		double totalSalByEmployeeLevel = EmployeeService.totalSalByEmployeeLevel(0, EmployeeInfo.emp);
+		assertEquals(72000.0, totalSalByEmployeeLevel);
+		System.out.println("sumEmployeeByLevel :: "+totalSalByEmployeeLevel);
 		
-		double sumEmployeeByGender = EmployeeInfo.getEmployeeByGender(Gender.MALE, EmployeeInfo.emp);
-		System.out.println("sumEmployeeByGender :: "+ sumEmployeeByGender);
+		double totalSalByEmployeeGender = EmployeeService.totalSalByEmployeeGender(Gender.MALE, EmployeeInfo.emp);
+		assertEquals(72000.0, totalSalByEmployeeGender);
+		System.out.println("totalSalByEmployeeGender :: "+ totalSalByEmployeeGender);
 		
-		double sumEmployeeByNameContains = EmployeeInfo.getEmployeeByNameContains("A", EmployeeInfo.emp);
-		System.out.println("sumEmployeeByNameContains :: "+ sumEmployeeByNameContains);
+		double totalSalByEmployeeNameContains = EmployeeService.totalSalByEmployeeNameContains("A", EmployeeInfo.emp);
+		assertEquals(161000.0, totalSalByEmployeeNameContains);
+		System.out.println("totalSalByEmployeeNameContains :: "+ totalSalByEmployeeNameContains);
 		
-		double sumEmployeeByLevelAndGender = EmployeeInfo.getEmployeeByLevelAndGender(1, Gender.FEMALE, EmployeeInfo.emp);
-		System.out.println("sumEmployeeByLevelAndGender :: "+ sumEmployeeByLevelAndGender);
+		double totalSalByEmployeeLevelAndGender = EmployeeService.totalSalByEmployeeLevelAndGender(1, Gender.FEMALE, EmployeeInfo.emp);
+		assertEquals(29000.0, totalSalByEmployeeLevelAndGender);
+		System.out.println("totalSalByEmployeeLevelAndGender :: "+ totalSalByEmployeeLevelAndGender);
 		
 	}
 	
 	@Test
 	void testMapByGender() {
 		System.out.println("..........................................................");
-		Map<Gender, List<EmployeeInfo>> listByGender = EmployeeInfo.employeeMapByGender(EmployeeInfo.emp);
+		Map<Gender, List<EmployeeInfo>> listByGender = EmployeeService.employeeMapByGender(EmployeeInfo.emp);
+		assertNotNull(listByGender);
 		System.out.println("listByGender"+listByGender);
-		Map<Gender,Double> sumByGender = EmployeeInfo.employeeMapSumByGender(EmployeeInfo.emp);
+		Map<Gender,Double> sumByGender = EmployeeService.totalSalOfEmployeeMapByGender(EmployeeInfo.emp);
+		assertEquals(177000.0, sumByGender.get(Gender.FEMALE));
 		System.out.println("sumByGender"+sumByGender);
 		
 	}

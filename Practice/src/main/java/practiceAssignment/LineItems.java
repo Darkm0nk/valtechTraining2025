@@ -3,25 +3,29 @@ package practiceAssignment;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.criteria.Order;
 
 
 @Entity
 public class LineItems {
 
-	@Id
+	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "lineItemSeq")
+	@SequenceGenerator(name = "lineItemSeq",sequenceName = "lineItem_seq ", allocationSize = 1)
 	private long id;
 	private int quantity;
 	@ManyToOne(targetEntity = Orders.class , cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "order_id",referencedColumnName = "id")
-	private Orders order;
-	@OneToOne(targetEntity = Item.class , cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
+	private Orders orders;
+	@ManyToOne(targetEntity = Item.class  ,fetch = FetchType.EAGER)
 	@JoinColumn(name = "item_id", referencedColumnName = "id")
-	private Item item;
+	private Item items;
 	public LineItems() {
 		super();
 	}
@@ -42,16 +46,16 @@ public class LineItems {
 		this.quantity = quantity;
 	}
 	public Orders getOrder() {
-		return order;
+		return orders;
 	}
 	public void setOrder(Orders order) {
-		this.order = order;
+		this.orders = order;
 	}
 	public Item getItem() {
-		return item;
+		return items;
 	}
 	public void setItem(Item item) {
-		this.item = item;
+		this.items = item;
 	}
 	
 	

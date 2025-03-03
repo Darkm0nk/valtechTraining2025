@@ -145,28 +145,7 @@ public class EmployeeInfo implements Comparable<EmployeeInfo>{
 		return Double.compare(this.salary, other.salary);
 	}
 
-		public static double getEmployeeByLevel(int level, List<EmployeeInfo> employeeByLevel) {
-			return employeeByLevel.stream().filter(e->e.level== level).mapToDouble(EmployeeInfo :: getSalary).sum();
-		}
 		
-		public static double getEmployeeByGender(Gender gender, List<EmployeeInfo> employeeByGender) {
-			return employeeByGender.stream().filter(e->e.gender == gender).mapToDouble(EmployeeInfo :: getSalary).sum();
-		}
-		
-		public static double getEmployeeByNameContains(String name, List<EmployeeInfo> employeeByNameContains) {
-			return employeeByNameContains.stream().filter(e->e.name.toLowerCase().contains(name.toLowerCase())).mapToDouble(EmployeeInfo:: getSalary).sum();
-		}
-		
-		public static double getEmployeeByLevelAndGender(int level, Gender gender , List<EmployeeInfo> employeeByLevelAndGender) {
-			return employeeByLevelAndGender.stream().filter(e->e.gender == gender && e.level==level).mapToDouble(EmployeeInfo :: getSalary).sum();
-		}
-		
-		public static Map<Gender,List<EmployeeInfo>> employeeMapByGender ( List<EmployeeInfo> employeeMapByGender){
-			return employeeMapByGender.stream().collect(Collectors.groupingBy(EmployeeInfo::getGender));
-		}
-		public static Map<Gender, Double> employeeMapSumByGender ( List<EmployeeInfo> employeeMapByGender){
-			return employeeMapByGender.stream().collect(Collectors.groupingBy(EmployeeInfo::getGender,Collectors.summingDouble(EmployeeInfo :: getSalary)));
-		}
 		
 
 	public static class EmployeeBuilder{

@@ -1,5 +1,9 @@
 package practiceAssignment.service;
 
-public interface OrderService {
+import practiceAssignment.Orders;
 
+public interface OrderService {
+	
+	Boolean OrderProcess(Orders o);
+	
 }

@@ -5,17 +5,18 @@
 <p:bean class="practiceAssignment.OrderDAOImpl"></p:bean>
 <p:bean class="practiceAssignment.LineItemDAOImpl"></p:bean>
 
+<p:bean class="practiceAssignment.service.OrderServiceImpl"></p:bean>
+<p:bean class="practiceAssignment.service.InventoryServiceImpl"></p:bean>
+<p:bean class="practiceAssignment.service.OrderStatusServiceImpl"></p:bean>
+
+
 <p:bean autowire="no" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 <p:property name="annotatedClasses">
 <p:list>
 <p:value>practiceAssignment.Customer</p:value>
 <p:value>practiceAssignment.Orders</p:value>
 <p:value>practiceAssignment.Item</p:value>
-<p:value>practiceAssignment.LineItems</p:value>
-<p:value>practiceAssignment.CustomerDAOImpl</p:value>
-<p:value>practiceAssignment.OrderDAOImpl</p:value>
-<p:value>practiceAssignment.ItemDAOImpl</p:value>
-<p:value>practiceAssignment.LineItemDAOImpl</p:value> 
+<p:value>practiceAssignment.LineItems</p:value> 
 
 </p:list>
 </p:property>

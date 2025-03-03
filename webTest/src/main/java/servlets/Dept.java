@@ -8,9 +8,7 @@ import java.util.List;
 
 public class Dept {
 	
-	
 
-	
 	private int Id;
 	private String name;
 	private String location;

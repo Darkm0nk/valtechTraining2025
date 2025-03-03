@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: First
+
+
+  datasource:
+    driver-class: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/training
+    username: postgres
+    password: postgress
+
+  sql:
+    init:
+      mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update
