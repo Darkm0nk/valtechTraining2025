@@ -4,8 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.TestExecutionListeners;
 
+import practiceAssignment.Customer.CustStatus;
 import practiceAssignment.Orders.Status;
+import practiceAssignment.service.CustomerService;
+import practiceAssignment.service.CustomerServiceImpl;
 import practiceAssignment.service.OrderService;
 import practiceAssignment.service.OrderServiceImpl;
 import practiceAssignment.service.OrderStatusService;
@@ -15,9 +19,9 @@ public class PracticeClient {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("practice.xml");
 		System.out.println("-----------------------------------------------------------------------");
-		CustomerDAO c = ctx.getBean(CustomerDAOImpl.class);
-//		c.save(new Customer("Who",22,"lalach","hehh"));
-		Customer c1 = c.get(1);
+		CustomerService c = ctx.getBean(CustomerServiceImpl.class);
+//		c.addCustomer(new Customer("Who",22,"lalach","hehh",CustStatus.ENABLE));
+		Customer c1 = c.getCustomer(11);
 		System.out.println(c1.getAddress());
 //		c1.setAddress("naMane");
 //		System.out.println(c1.getAddress()+" "+c1.getAge()+" "+c1.getName()+" "+c1.getPerAddress()+" "+c1.getId());
@@ -58,13 +62,15 @@ public class PracticeClient {
 		
 		OrderStatusService orderStatusService = ctx.getBean(OrderStatusServiceImpl.class);
 		
-		System.out.println("Status of Order id 3 :: "+ orderStatusService.checkOrderStatus(3));
+		System.out.println("Status of Order id 3 :: "+ orderStatusService.checkOrderStatus(148));
 //		i = new Item("Nothing",8,5,20);
 //		iDAO.save(i);
-		System.out.println("Set status next from :: "+orderStatusService.checkOrderStatus(3) +" to:: " +orderStatusService.SetNextOrderStatus(3));
+		System.out.println("Set status next from :: "+orderStatusService.checkOrderStatus(148) +" to:: " +orderStatusService.SetNextOrderStatus(148));
 		ctx.close();
 		
-		
-		
+
 	}
+	
+	
+	
 }

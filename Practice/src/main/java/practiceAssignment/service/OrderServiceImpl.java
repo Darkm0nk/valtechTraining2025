@@ -23,7 +23,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Boolean OrderProcess(Orders o) {
-		
+		if()
 		Set<LineItems> lineItems = o.getLineItems();
 		System.out.println("--------------------------------------------");
 		System.out.println(lineItems);
@@ -50,6 +50,8 @@ public class OrderServiceImpl implements OrderService {
 		
 		return true;
 	}
+	
+	
 	public void setInventoryService(InventoryService inventoryService) {
 		this.inventoryService = inventoryService;
 	}

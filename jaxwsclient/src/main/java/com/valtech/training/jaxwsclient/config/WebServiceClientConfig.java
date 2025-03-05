@@ -19,7 +19,7 @@ public class WebServiceClientConfig {
 		JaxWsProxyFactoryBean proxy = new JaxWsProxyFactoryBean();
 		proxy.setServiceClass(MovieServiceWS.class);
 		proxy.setServiceName(new QName("http://webservices.jaws.training.valtech.com/","MovieServiceWSImplService"));
-		proxy.setAddress("http://localhost:7770/services/movieService");
+		proxy.setAddress("http://localhost:8080/services/movieService");
 		return proxy.create(MovieServiceWS.class);
 	}
 	

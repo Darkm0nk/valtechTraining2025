@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,17 +25,24 @@ public class Customer {
 	private int age;
 	private String address;
 	private String perAddress;
+	@Enumerated(EnumType.STRING)
+	private CustStatus custStatus;
 	
+	public enum CustStatus{
+		ENABLE , DISABLE
+	}
 	public Customer() {
 	
 	}
-	public Customer(String name, int age, String address, String perAddress) {
+	public Customer(String name, int age, String address, String perAddress, CustStatus status) {
 		super();
 		this.name = name;
 		this.age = age;
 		this.address = address;
 		this.perAddress = perAddress;
+		this.custStatus = status;
 	}
+	
 	public long getId() {
 		return id;
 	}
@@ -63,6 +72,12 @@ public class Customer {
 	}
 	public void setPerAddress(String perAddress) {
 		this.perAddress = perAddress;
+	}
+	public CustStatus getStatus() {
+		return custStatus;
+	}
+	public void setStatus(CustStatus status) {
+		this.custStatus = status;
 	}
 	
 	
