@@ -22,7 +22,7 @@ public class LoanServiceClientConfig {
 	public LoanServiceWS createLoanService() {
 		JaxWsProxyFactoryBean proxy = new JaxWsProxyFactoryBean();
 		proxy.setServiceClass(LoanServiceWS.class);
-		proxy.setServiceName(new QName("http://webservices.loan-service.training.valtech.com/","MovieServiceWSImplService"));
+		proxy.setServiceName(new QName("http://webservices.loan-service.training.valtech.com/","LoanServiceWSImplService"));
 		proxy.setAddress("http://localhost:8080/services/loanService");
 		return proxy.create(LoanServiceWS.class);
 	}
