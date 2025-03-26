@@ -51,9 +51,9 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerDAO.getAll();
 	}
 	
-	
 	public void setCustomerDAO(CustomerDAO customerDAO) {
 		this.customerDAO = customerDAO;
 	}
-	
+
+
 }

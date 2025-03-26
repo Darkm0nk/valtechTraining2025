@@ -4,6 +4,6 @@ import practiceAssignment.Orders;
 
 public interface OrderService {
 	
-	Boolean OrderProcess(Orders o);
+	String OrderProcess(Orders o);
 	
 }

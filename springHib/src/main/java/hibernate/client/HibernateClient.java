@@ -49,6 +49,7 @@ public class HibernateClient {
 //		car.setName("Bmw");
 //		ses.update(car);
 //		System.out.println(car.getClass().getName());
+		
 		tx.commit();
 		ses.close();
 		sesFac.close();

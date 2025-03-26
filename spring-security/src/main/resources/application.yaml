@@ -1,0 +1,20 @@
+
+spring:
+  application:
+    name: SPRING-SECURITY
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/auth
+    username: postgres
+    password: postgress
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  mvc:
+    view:
+      prefix: /jsps/
+      suffix: .jsp
+

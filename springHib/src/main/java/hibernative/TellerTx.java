@@ -12,7 +12,7 @@ public class TellerTx extends Tx {
 	private String Branch;
 	
 	public TellerTx(double amount, String teller, String branch) {
-		super(amount);
+		super(amount); 
 		this.teller = teller;
 		Branch = branch;
 	}

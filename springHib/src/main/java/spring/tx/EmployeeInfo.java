@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.Id;
 @Entity
 public class EmployeeInfo implements Comparable<EmployeeInfo>{
 	
+	@Id
 	private long id;
 	private String name;
 	private int age;

@@ -2,6 +2,7 @@ package assignment;
 
  import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -14,10 +15,18 @@ class EmployeeInfoTest {
 
 	EmployeeInfo employee = EmployeeInfo.builder().id(1).name("Vishal").age(21).salary(23000).gender(Gender.MALE).level(0).build();
 	EmployeeInfo employee1 = EmployeeInfo.builder().id(1).name("Vishal").age(21).salary(23000).gender(Gender.MALE).level(0).build();
-	EmployeeInfo employee2 = EmployeeInfo.builder().id(1).name("Sakshi").age(23).salary(29000).gender(Gender.FEMALE).level(1).build();
-	EmployeeInfo employee3 = EmployeeInfo.builder().id(1).name("Hemant").age(22).salary(26000).gender(Gender.MALE).level(0).build();
-	EmployeeInfo employee4 = EmployeeInfo.builder().id(1).name("nananum").age(21).salary(30000).gender(Gender.FEMALE).level(2).build();
-	EmployeeInfo employee5 = EmployeeInfo.builder().id(1).name("viryatap").age(21).salary(30000).gender(Gender.OTHER).level(3).build();
+	EmployeeInfo employee2 = EmployeeInfo.builder().id(2).name("Sakshi").age(23).salary(29000).gender(Gender.FEMALE).level(1).build();
+	EmployeeInfo employee3 = EmployeeInfo.builder().id(3).name("Hemant").age(22).salary(26000).gender(Gender.MALE).level(0).build();
+	EmployeeInfo employee4 = EmployeeInfo.builder().id(4).name("nananum").age(21).salary(30000).gender(Gender.FEMALE).level(2).build();
+	EmployeeInfo employee5 = EmployeeInfo.builder().id(5).name("viryatap").age(21).salary(30000).gender(Gender.OTHER).level(3).build();
+	
+//	List<EmployeeInfo> emps = new ArrayList<EmployeeInfo>();
+	
+	@Test
+	void test() {
+//		emps.add(EmployeeInfo.builder().id(1).name("Vishal").age(21).salary(23000).gender(Gender.MALE).level(0).build());
+//		emps.add(EmployeeInfo.builder().id(1).name("Vishal").age(21).salary(23000).gender(Gender.MALE).level(0).build());
+	}
 	
 	@Test
 	void testHashCode() {
@@ -36,8 +45,10 @@ class EmployeeInfoTest {
 	@Test
 	void testSort() {
 		System.out.println("..........................................................");
+		System.out.println(EmployeeInfo.emp);
 		Collections.sort(EmployeeInfo.emp);
 		System.out.println(EmployeeInfo.emp);
+		assertEquals(EmployeeInfo.emp.get(3).getName(), "Vishal");
 	}
 	
 	@Test

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import practiceAssignment.Customer.CustStatus;
 import practiceAssignment.Item;
 import practiceAssignment.LineItemDAO;
 import practiceAssignment.LineItems;
@@ -22,8 +23,8 @@ public class OrderServiceImpl implements OrderService {
 	InventoryService inventoryService;
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
-	public Boolean OrderProcess(Orders o) {
-		if()
+	public String OrderProcess(Orders o) {
+		if(o.getCustomer().getStatus()==CustStatus.DISABLE) return "Custmoer is Disable to place Order";
 		Set<LineItems> lineItems = o.getLineItems();
 		System.out.println("--------------------------------------------");
 		System.out.println(lineItems);
@@ -36,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
 
 			Boolean ans = inventoryService.checkCurrentItem(quantity, id);
 			if(!ans) {
-				return false;
+				return "Item is out of stocks";
 			}
 			System.out.println("-----------------------------");
 			
@@ -48,7 +49,7 @@ public class OrderServiceImpl implements OrderService {
 			inventoryService.setCurIfReq(id);
 		}
 		
-		return true;
+		return "Order Placed Successfully";
 	}
 	
 	

@@ -57,8 +57,8 @@ public class PracticeClient {
 		o.setLineItems(addItems);
 		OrderService os = ctx.getBean(OrderServiceImpl.class);
 		System.out.println(o);
-		boolean a =os.OrderProcess(o);
-		System.out.println(a);
+		String result =os.OrderProcess(o);
+		System.out.println(result);
 		
 		OrderStatusService orderStatusService = ctx.getBean(OrderStatusServiceImpl.class);
 		

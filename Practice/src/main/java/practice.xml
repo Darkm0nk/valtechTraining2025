@@ -4,6 +4,7 @@
 <p:bean class="practiceAssignment.ItemDAOImpl"></p:bean>
 <p:bean class="practiceAssignment.OrderDAOImpl"></p:bean>
 <p:bean class="practiceAssignment.LineItemDAOImpl"></p:bean>
+<p:bean class="practiceAssignment.CustomerDAOImpl"></p:bean>
 
 <p:bean class="practiceAssignment.service.OrderServiceImpl"></p:bean>
 <p:bean class="practiceAssignment.service.InventoryServiceImpl"></p:bean>
