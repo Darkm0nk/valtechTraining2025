@@ -15,9 +15,6 @@ import com.valtech.training.loanservice.webservices.LoanServiceWS;
 import com.valtech.training.loanservice.webservices.LoanServiceWSImpl;
 
 
-
-
-
 @Configuration
 public class LoanServiceConfig {
 
