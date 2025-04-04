@@ -25,7 +25,6 @@ import com.valtech.training.ecommerce.vos.OrderVO;
 import com.valtech.training.ecommerce.vos.addItemVO;
 
 @Controller
-@SessionAttributes(names = {"lineitems"})
 public class CustomerController {
 
 	@Autowired
@@ -34,8 +33,6 @@ public class CustomerController {
 	@Autowired
 	private ItemService itemService;
 	
-	@Autowired
-	private OrderService orderService;
 	
 	@PostMapping("/custRegister")
 	public String addCustomer(@ModelAttribute CustomerVO customerVO, Model model) {
@@ -43,45 +40,11 @@ public class CustomerController {
 		customerService.addCustomer(customerVO);
 		model.addAttribute("customer",customerVO);
 		return "order";
-		
 	}
 	
 	@GetMapping("/custRegister")
 	public String regCustomer() {
 		return "custRegister";
-	}
-	
-	@GetMapping("/order")
-	public String order(@ModelAttribute ItemVO itemVO , Model model) {
-		model.addAttribute("items",itemService.getAllItems());
-		return "order";
-	}
-	
-	@PostMapping("/order")
-	public String createList(@ModelAttribute LineItemVO lineItemVO, Model model) {
-		
-		List<LineItemVO> lineItems = (List<LineItemVO>) model.getAttribute("lineitems");
-
-		
-		if(lineItems==null) lineItems = new ArrayList<LineItemVO>();
-		
-//			LineItems items = lineItemVO.to(itemService.getItem(Long.parseLong(lineItemVO.id()) ))
-			lineItems.add(lineItemVO);
-			System.out.println("items::: " + model.addAttribute(model.getAttribute("items")));
-			model.addAttribute("itemIds",lineItems);
-		
-		
-//		model.addAttribute(model.getAttribute("items"));
-		return "redirect:/order";
-	}
-	
-	@PostMapping("/orderItem")
-	public String createOrder(@ModelAttribute OrderVO orderVO, Model model) {
-		orderVO.setStatus("ORDERED");
-		orderVO.setCustId(1);
-		orderService.OrderProcess(orderVO, (List<LineItemVO>)model.getAttribute("lineitems"));
-		return "orderItems";
-		
 	}
 	
 	@PostMapping("/item")

@@ -54,6 +54,10 @@ public class LineItems {
 	public void setItem(Item item) {
 		this.items = item;
 	}
+	@Override
+	public String toString() {
+		return "LineItems [id=" + id + ", quantity=" + quantity + ", orders=" + orders + ", items=" + items + "]";
+	}
 	
 	
 }

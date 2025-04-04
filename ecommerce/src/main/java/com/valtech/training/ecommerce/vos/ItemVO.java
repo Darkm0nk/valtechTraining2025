@@ -36,7 +36,9 @@ public class ItemVO {
 	}
 	
 	public Item to() {
-		return new Item(name, description, currQuantity, reOrderQuantity, maxQuantity);
+		Item i = new Item(name, description, currQuantity, reOrderQuantity, maxQuantity);
+		i.setId(id);
+		return i;
 	}
 
 	public long getId() {

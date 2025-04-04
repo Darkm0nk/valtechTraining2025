@@ -11,10 +11,7 @@ import com.valtech.training.ecommerce.vos.OrderVO;
 
 public interface OrderService {
 	
-	String OrderProcess(OrderVO orderVO, List<LineItemVO> items);
+	String OrderProcess(OrderVO orderVO);
 
-	List<Long> getListOfItemId(List<LineItems> list);
-
-	List<Integer> getListOfQuantity(List<LineItems> items);
 	
 }

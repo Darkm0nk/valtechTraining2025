@@ -33,23 +33,23 @@
 	<td>${item.description}</td>
 	<td></td>
 	<td></td>
-	<td><input type="text" name= "quantity"></td>
-	<td><input type="hidden" name= "id" value= "${0}"></td>
-	<td><input type="hidden" name= "itemId" value= "${item.id}"></td>
-	<td colspan="2">
-	<input type="submit" name="add" value="add"/>
 </tr>
 </c:forEach>
+<tr>
+	<td>Item Id</td>
+	<td>Quantity</td>
+	<td>Customer ID</td>
+</tr>
+<tr>
+	<td><input type="text" name= "itemIds"></td>
+	<td><input type="text" name= "quantity"></td>
+	<td><input type="text" name= "custId"></td>
+	<td colspan="2">
+	<input type="submit" name="submit" value="submit"/>
+</tr>
 </table>
 </form>
-<form action="order" method="post">
 <table>
-<tr>
-	<td>
-	<button type="submit" name="action" value="submit"/>Submit</button>
-	
-	</td>
-</tr>
 <tr>
 <c:forEach items ="${itemIds}" var="ids" >
 	
@@ -62,6 +62,5 @@
 </c:forEach>
 </tr>
 </table>
-</form>
 </body>
 </html>

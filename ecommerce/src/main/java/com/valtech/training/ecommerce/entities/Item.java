@@ -88,6 +88,12 @@ public class Item {
 	public void setMaxQuantity(int maxQuantity) {
 		this.maxQuantity = maxQuantity;
 	}
+
+	@Override
+	public String toString() {
+		return "Item [id=" + id + ", name=" + name + ", description=" + description + ", currQuantity=" + currQuantity
+				+ ", reOrderQuantity=" + reOrderQuantity + ", maxQuantity=" + maxQuantity + "]";
+	}
 	
 	
 	

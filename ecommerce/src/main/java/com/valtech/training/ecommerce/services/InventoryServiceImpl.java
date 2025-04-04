@@ -17,7 +17,7 @@ public class InventoryServiceImpl implements InventoryService {
 	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public Boolean checkCurrentItem(int quantity , long id) {
-		
+		System.out.println("id in check...."+id);
 		Item i = itemRepo.getReferenceById(id);
 		System.out.println("Current Quantity in Item:: "+ i.getCurrQuantity()+" And Quantity:: "+quantity);
 		if(i.getCurrQuantity()>quantity) {

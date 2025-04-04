@@ -20,11 +20,9 @@ public class OrderVO {
 	private long id;
 	private String status ;
 	private long custId;
-	private List<Long> itemIds ; 
-	private List<Integer> quantity;
-	
-	@Autowired
-	static OrderService orderService ;
+	private long itemIds ; 
+	private Integer quantity;
+
 	
 	@Autowired
 	static CustomerService customerService;
@@ -33,9 +31,7 @@ public class OrderVO {
 		
 	}
 	
-	
-
-	public OrderVO(long id, String status, long custId, List<Long> itemIds, List<Integer> quantity) {
+	public OrderVO(long id, String status, long custId, long itemIds, int quantity) {
 		this.id = id;
 		this.status = status;
 		this.custId = custId;
@@ -47,15 +43,14 @@ public class OrderVO {
 
 	public OrderVO from(Orders o) {
 		String orderStatus = o.getStatus().name();
-		
-		return new OrderVO(o.getId(), orderStatus, o.getCustomer().getId(), orderService.getListOfItemId(o.getLineItems()),orderService.getListOfQuantity(o.getLineItems()));
+		return new OrderVO(o.getId(), orderStatus, o.getCustomer().getId(), o.getLineItems().get(0).getItem().getId() , o.getLineItems().get(0).getQuantity());
 	}
 	
-	public Orders to(List<LineItems> lineItems) {
+	public Orders to() {
 		Status st = Status.valueOf(status);
 		Orders o = new Orders(st);
-		o.setCustomer(customerService.getCustomer(custId).to());
-		o.setLineItems(lineItems);
+//		o.setCustomer(customerService.getCustomer(custId).to());
+//		o.setLineItems(lineItems);
 		return o;
 	}
 
@@ -97,39 +92,28 @@ public class OrderVO {
 
 
 
-	public List<Long> getItemIds() {
+	public long getItemIds() {
 		return itemIds;
 	}
 
 
 
-	public void setItemIds(List<Long> itemIds) {
+	public void setItemIds(long itemIds) {
 		this.itemIds = itemIds;
 	}
 
 
 
-	public List<Integer> getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
 
 
-	public void setQuantity(List<Integer> quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
 
-
-	public static OrderService getOrderService() {
-		return orderService;
-	}
-
-
-
-	public static void setOrderService(OrderService orderService) {
-		OrderVO.orderService = orderService;
-	}
-	
 	
 }
