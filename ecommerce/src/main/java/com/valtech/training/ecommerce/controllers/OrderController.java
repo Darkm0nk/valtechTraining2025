@@ -33,7 +33,7 @@ public class OrderController {
 	
 	@PostMapping("/order")
 	public String createList(@ModelAttribute OrderVO orderVO, Model model) {
-
+		System.out.println("orderVO in controller"+orderVO);
 		orderService.OrderProcess(orderVO);
 		return "redirect:/order";
 	}

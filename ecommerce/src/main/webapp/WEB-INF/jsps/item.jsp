@@ -26,7 +26,7 @@
 			<td><input type="text" name="reOrderQuantity"/></td>
 		</tr>
 		<tr>
-			<td>Max Address</td>
+			<td>Max Quantity</td>
 			<td><input type="text" name="maxQuantity"/></td>
 		</tr>
 		<tr>

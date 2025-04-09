@@ -20,7 +20,7 @@ public class LineItems {
 	@ManyToOne(targetEntity = Orders.class , cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "order_id",referencedColumnName = "id")
 	private Orders orders;
-	@ManyToOne(targetEntity = Item.class  ,fetch = FetchType.EAGER)
+	@ManyToOne(targetEntity = Item.class ,fetch = FetchType.EAGER)
 	@JoinColumn(name = "item_id", referencedColumnName = "id")
 	private Item items;
 	public LineItems() {

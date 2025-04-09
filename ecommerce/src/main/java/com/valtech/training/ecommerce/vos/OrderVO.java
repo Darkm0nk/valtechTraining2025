@@ -23,7 +23,6 @@ public class OrderVO {
 	private long itemIds ; 
 	private Integer quantity;
 
-	
 	@Autowired
 	static CustomerService customerService;
 	
@@ -38,8 +37,6 @@ public class OrderVO {
 		this.itemIds = itemIds;
 		this.quantity = quantity;
 	}
-
-
 
 	public OrderVO from(Orders o) {
 		String orderStatus = o.getStatus().name();
@@ -113,7 +110,6 @@ public class OrderVO {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
 
 	
 }

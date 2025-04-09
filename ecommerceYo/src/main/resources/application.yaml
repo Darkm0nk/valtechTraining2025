@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ECOMMERCE
+
+  datasource:
+    driver-class: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ecommerceYo
+    username: postgres
+    password: postgress
+
+  sql:
+    init:
+      mode: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  mvc:
+    view:
+      prefix: /WEB-INF/jsps/
+      suffix: .jsp

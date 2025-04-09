@@ -11,13 +11,9 @@ public class ItemVO {
 	int reOrderQuantity ;
 	int maxQuantity;
 	
-	
-	
 	public ItemVO() {
 		
 	}
-	
-	
 
 	public ItemVO(long id, String name, String description, int currQuantity, int reOrderQuantity, int maxQuantity) {
 		super();
@@ -28,9 +24,7 @@ public class ItemVO {
 		this.reOrderQuantity = reOrderQuantity;
 		this.maxQuantity = maxQuantity;
 	}
-
-
-
+	
 	public static ItemVO from(Item i) {
 		return new ItemVO(i.getId(), i.getName(), i.getDesc(), i.getCurrQuantity(), i.getReOrderQuantity(), i.getMaxQuantity());
 	}
